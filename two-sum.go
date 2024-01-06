@@ -8,15 +8,13 @@ func main() {
 
 	var num int
 	var target int
-	var nums []int
 	fmt.Scanf("%d", &target)
 	fmt.Scanf("%d", &num)
+	nums := make([]int, num)
 
 	for i := 0; i < num; i++ {
 
-		var x int
-		fmt.Scanf("%d", &x)
-		nums = append(nums, x)
+		fmt.Scanf("%d", &(nums[i]))
 
 	}
 
@@ -28,22 +26,23 @@ func main() {
 func twoSum(nums []int, target int) []int {
 
 	var ans [2]int
+	seen := make(map[int]int)
 
 	l := len(nums)
 
-	for i := 0; i < l-1; i++ {
+	for i := 0; i < l; i++ {
 
 		tgt := target - nums[i]
+		j, ok := seen[tgt]
 
-		for j := i + 1; j < l; j++ {
+		if ok && j != i {
 
-			if nums[j] == tgt {
+			ans[0], ans[1] = i, j
+			return ans[:]
 
-				ans[0], ans[1] = i, j
-				return ans[:]
-
-			}
 		}
+
+		seen[nums[i]] = i
 
 	}
 
