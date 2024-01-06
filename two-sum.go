@@ -33,9 +33,8 @@ func twoSum(nums []int, target int) []int {
 	for i := 0; i < l; i++ {
 
 		tgt := target - nums[i]
-		j, ok := seen[tgt]
 
-		if ok && j != i {
+		if j, ok := seen[tgt]; ok && j != i {
 
 			ans[0], ans[1] = i, j
 			return ans[:]
