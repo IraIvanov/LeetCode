@@ -4,7 +4,7 @@ import "fmt"
 
 func main() {
 
-	num := 10
+	num := -121
 	fmt.Print(isPal(num))
 }
 
